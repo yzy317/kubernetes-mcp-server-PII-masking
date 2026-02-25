@@ -428,7 +428,7 @@ func podsLog(params api.ToolHandlerParams) (*api.ToolCallResult, error) {
 	} else if ret == "" {
 		ret = fmt.Sprintf("The pod %s in namespace %s has not logged any message yet", name, ns)
 	}
-	return api.NewToolCallResult(ret, err), nil
+	return api.NewToolCallResult(MaskPII(ret), err), nil
 }
 
 func podsRun(params api.ToolHandlerParams) (*api.ToolCallResult, error) {
